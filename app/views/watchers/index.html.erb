@@ -1,0 +1,27 @@
+<h1>Listing watchers</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Game</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @watchers.each do |watcher| %>
+  <tr>
+    <td><%= watcher.email %></td>
+    <td><%= watcher.game %></td>
+    <td><%= watcher.price %></td>
+    <td><%= link_to 'Show', watcher %></td>
+    <td><%= link_to 'Edit', edit_watcher_path(watcher) %></td>
+    <td><%= link_to 'Destroy', watcher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Watcher', new_watcher_path %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @watcher.email %>
+</p>
+
+<p>
+  <b>Game:</b>
+  <%= @watcher.game %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @watcher.price %>
+</p>
+
+
+<%= link_to 'Edit', edit_watcher_path(@watcher) %> |
+<%= link_to 'Back', watchers_path %>
