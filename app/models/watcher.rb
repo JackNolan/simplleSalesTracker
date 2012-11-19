@@ -7,7 +7,7 @@ class Watcher < ActiveRecord::Base
   def send_notification
   end
   def game_name=(game_name)
-    self.game = Game.find_by_name(game_name)
+    self.game = Game.find_by_id(game_name)
   end
   def game_name
   end

@@ -44,7 +44,7 @@ class WatchersController < ApplicationController
 
     respond_to do |format|
       if @watcher.save
-        format.html { redirect_to root_path, notice: 'Watcher was successfully created.' }
+        format.html { redirect_to root_path, notice: "You will be notified if #{@watcher.game.name}'s price is equal to or less then $#{@watcher.price.to_s}" }
         format.json { render json: @watcher, status: :created, location: @watcher }
       else
         format.html { render action: "new" }

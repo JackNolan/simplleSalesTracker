@@ -1,9 +1,7 @@
 SteamPriceWatcher::Application.routes.draw do
   get "games/index"
   get "games.json" => "games#index"
-  resources :watchers do
-    get "autocomplete_game_name", :on => :collection
-  end
+  post "watchers" => "watchers#create"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

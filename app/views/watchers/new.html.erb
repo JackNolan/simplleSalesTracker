@@ -1,10 +1,10 @@
-<div class="content">
-<h1>Enter a game and price to watch</h1>
+
+  <div class="center">
+    <h2>Steam-Watch</h2>
+  </div>
     <%= form_for(@watcher) do |f| %>
       <% if @watcher.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@watcher.errors.count, "error") %> prohibited this watcher from being saved:</h2>
-
           <ul>
           <% @watcher.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -12,28 +12,26 @@
           </ul>
         </div>
       <% end %>
+      <div class="form" >
+         <div class=" field">
+         <%= f.label :game_name %>
+          <%= f.collection_select :game_name, Game.order(:name),:id,:name %>
+        </div>
 
-      <div class="span5 field">
-        <%= f.label :game_name %><br />
-        <%= f.autocomplete_field :game_name, 
-        autocomplete_game_name_watchers_path %>
-      </div>
+         <div class=" field">
+          <%= f.label :price %>
+          <%= f.text_field :price %>
+        </div>
+      
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+        </div>
 
-       <div class="span5 field">
-        <%= f.label :price %><br />
-        <%= f.text_field :price %>
-      </div>
-
-
-      <div class="span12 field">
-        <%= f.label :email %><br />
-        <%= f.text_field :email %>
-      </div>
-
-
-      <div class="span12 actions">
+      <div class="actions">
         <%= f.submit %>
       </div>
+      </div>
     <% end %>
-<p id="notice"><%= notice %></p>
-    </div>
+<h4 id="notice"><%= notice %></h4>
+</div>
