@@ -1,3 +1,4 @@
+<div class="content">
 <h1>Enter a game and price to watch</h1>
     <%= form_for(@watcher) do |f| %>
       <% if @watcher.errors.any? %>
@@ -12,22 +13,27 @@
         </div>
       <% end %>
 
-      <div class="field">
+      <div class="span5 field">
         <%= f.label :game_name %><br />
-        <%= f.text_field :game_name %>
+        <%= f.autocomplete_field :game_name, 
+        autocomplete_game_name_watchers_path %>
       </div>
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.text_field :email %>
-      </div>
-
-      <div class="field">
+       <div class="span5 field">
         <%= f.label :price %><br />
         <%= f.text_field :price %>
       </div>
 
-      <div class="actions">
+
+      <div class="span12 field">
+        <%= f.label :email %><br />
+        <%= f.text_field :email %>
+      </div>
+
+
+      <div class="span12 actions">
         <%= f.submit %>
       </div>
     <% end %>
+<p id="notice"><%= notice %></p>
+    </div>
