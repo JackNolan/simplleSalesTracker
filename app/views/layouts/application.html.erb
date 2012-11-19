@@ -7,8 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="span10">
 <%= yield %>
-
+</div>
+<div class="span2 about">
+  <p>This is a tool created to track <a href="http://store.steampowered.com/">steam</a> game prices. Select a game, then enter a price and email to be alerted if the game's price ever fails below the specified price.</p>
+  <p> This tool was created by Jack Nolan at the  <a href="http://flatironschool.com/">flatiron school</a> #shamlessPlug</p>
+</div>
 </body>
 </html>

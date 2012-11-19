@@ -20,7 +20,7 @@ task :check_prices => [:environment] do
       game = Game.find_or_create_by_name(name)
       Watcher.find_all_by_game_id(game).each do |watcher|
         if watcher.price <= price
-          watcher.send_notification 
+          WatcherMailer.notify_price_drop(watcher)
           watcher.delete
         end
       end

@@ -1,0 +1,4 @@
+You requested that you be notified if <%=@watcher.name%>'s price is less then or equal to $<%=@watcher.price.to_s%>. This is a one time email and you will never be notified for this game again. 
+
+Go check it out <%= link_to "steam link", @watcher.game.url  %>
+Also go watch for more great deals! <%= link_to "here", root_path%>

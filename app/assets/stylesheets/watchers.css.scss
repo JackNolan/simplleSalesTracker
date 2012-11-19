@@ -1,18 +1,24 @@
 // Place all the styles related to the watchers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-label,h2 {
+label,h2,.about {
   color: #c4c4c4;
 }
 li {
   list-style-type: none;
 }
 .center {
-  padding:0 40%;
+  padding:0 35%;
+  margin-left: 40px;
 }
 div.form,#notice {
   padding:0 40%;
 }
 .actions {
   padding: 0 18%;
+}
+.about{
+  border:   double;
+  margin-top: 100px;
+  padding:10px;
 }
