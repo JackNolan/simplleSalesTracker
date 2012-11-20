@@ -6,15 +6,17 @@
   development:
     adapter: postgresql
     encoding: unicode
-    database: steam_watch
+    database: postgres
     pool: 5
-    username: jack
+    username:
+    host: localhost
+    port: 5432
     password:
 
   test:
     adapter: postgresql
     encoding: unicode
-    database: steam_watch
+    database: postgres
     pool: 5
     username: jack
     password:
