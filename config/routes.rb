@@ -29,7 +29,7 @@ SteamPriceWatcher::Application.routes.draw do
   #   end
 
   # Sample resource route with sub-resources:
-  #   resources :products do
+  #   resources :products, :sollow => true do
   #     resources :comments, :sales
   #     resource :seller
   #   end

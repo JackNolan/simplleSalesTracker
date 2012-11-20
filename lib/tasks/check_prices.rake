@@ -16,11 +16,16 @@ task :check_prices => [:environment] do
   def scrape_page(current_page)
     (current_page/".search_result_row").each do |row|
       name = (row/".search_name > h4").inner_text.gsub(/[^ -~]/i,"")
-      price = (row/".search_price").children.last.to_s.gsub(/[^0-9]/, '').to_f
-      game = Game.find_or_create_by_name(name)
+      price = (row/".search_price").children.last.to_s.gsub(/[^0-9]/, '').to_f / 100.0
+      url = row.attr('href')
+      game = Game.find_or_initialize_by_name(name)
+      game.price = price
+      game.url = url 
+      game.save 
       Watcher.find_all_by_game_id(game).each do |watcher|
-        if watcher.price <= price
-          WatcherMailer.notify_price_drop(watcher)
+        if price <= watcher.price
+          puts "removing"
+          WatcherMailer.notify_price_drop(watcher).deliver
           watcher.delete
         end
       end
