@@ -1,6 +1,7 @@
 SteamPriceWatcher::Application.routes.draw do
   get "games/index"
   get "games.json" => "games#index"
+  get 'games/show' => 'games#show'
   post "watchers" => "watchers#create"
   # The priority is based upon order of creation:
   # first created -> highest priority.
