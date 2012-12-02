@@ -4,3 +4,24 @@
 $(function(){
   $('#watcher_game_name').chosen();
 });
+
+$(document).ready(function() {
+
+  // update the price text_field when game is selected
+  $('select#watcher_game_name').change(function() {
+   
+    var current_choice = $("select#watcher_game_name option:selected");
+    var selected_val = current_choice.attr("value");
+
+    $.ajax({
+      url: 'games/show',
+      data: { selected_id: selected_val },
+      success: function(data){
+        $("input#watcher_price").val(data.price);
+      }
+
+    });
+
+  });
+
+});
